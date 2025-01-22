@@ -11,17 +11,19 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
-//import { EstudentDBComponent } from './components/estudent-db/estudent-db.component';
-
+import { SharedModule } from '../../../../shared/shared.module';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
     StudentsComponent,
-   // EstudentDBComponent
+   
   ],
   imports: [
     CommonModule,
-    StudentsRoutingModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule, ReactiveFormsModule, MatTableModule
+    StudentsRoutingModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule, ReactiveFormsModule, MatTableModule, SharedModule, MatDatepickerModule, MatTooltipModule
   ],
   exports: [StudentsComponent
   ],
