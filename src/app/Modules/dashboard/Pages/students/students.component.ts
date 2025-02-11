@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Student } from './models/student';
 import { getNextConsecutiveNumber } from '../../../Shareds/Utils/util';
@@ -6,6 +6,19 @@ import { SelectionChange } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { StudentsServices } from '../../../../core/services/students';
+
+import {
+  concatMap,
+  filter,
+  first,
+  forkJoin,
+  interval,
+  map,
+  Subscription,
+  take,
+  tap,
+} from 'rxjs';
 
 
 @Component({
@@ -16,7 +29,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
   styleUrl: './students.component.scss'
 
 })
-export class StudentsComponent {
+export class StudentsComponent implements OnInit, OnDestroy{
   estudentForm: FormGroup;
   studentList: Student[] = [];
   displayedColumns: string[] = ['id', 'dni', 'name', 'email', 'acciones'];
@@ -30,8 +43,13 @@ export class StudentsComponent {
   email = '';
   cel = '';
   date = new Date();
+  isLoading = true;
+  hasError = false
+  studentsSubscription?: Subscription;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private studentsService: StudentsServices
+) {
     this.estudentForm = this.fb.group({
       name: [null, [Validators.required, Validators.maxLength(200)]],
       lastname: [null, [Validators.required, Validators.maxLength(200)]],
@@ -44,6 +62,17 @@ export class StudentsComponent {
       date: new Date(),
     })
 
+  }
+
+  ngOnInit(): void {
+    
+    this.loadStudents();
+  
+  }
+
+  ngOnDestroy(): void {
+    
+    this.studentsSubscription?.unsubscribe();
   }
 
 
@@ -110,6 +139,27 @@ export class StudentsComponent {
     this.date = new Date(this.birthdate);
     
   }
+
+  loadStudents(): void {
+    this.isLoading = true;
+    this.studentsSubscription = this.studentsService.getStudent()
+      .pipe(take(3))
+      .subscribe({
+        next: (studentList) => {
+          this.studentList = studentList;
+        },
+        error: (error) => {
+          alert(error);
+          this.hasError = true;
+          this.isLoading = false;
+        },
+        complete: () => {
+          this.isLoading = false;
+        }
+   
+      });
+  }
+
 
   onConstruc() {
     alert('En construccion');

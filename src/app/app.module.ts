@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -13,6 +14,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
+   
+   
   ],
   providers: [
     provideAnimationsAsync()

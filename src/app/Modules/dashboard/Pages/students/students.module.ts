@@ -15,10 +15,12 @@ import { SharedModule } from '../../../../shared/shared.module';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { StudentDatailComponent } from './pages/student-datail/student-datail.component';
 
 @NgModule({
   declarations: [
     StudentsComponent,
+    StudentDatailComponent,
    
   ],
   imports: [

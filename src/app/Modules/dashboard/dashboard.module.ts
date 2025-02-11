@@ -9,12 +9,17 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { StudentsModule } from './Pages/students/students.module';
+import { SharedModule } from '../../shared/shared.module';
+import { NavMenuComponent } from './Components/nav-menu/nav-menu.component';
+
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     MenuComponent,
+    NavMenuComponent,
+   
    
   ],
   imports: [
@@ -25,6 +30,8 @@ import { StudentsModule } from './Pages/students/students.module';
     MatToolbarModule,
     MatIconModule,
     StudentsModule,
+    SharedModule,
+   
   ],
     exports:[DashboardComponent],
 })

@@ -6,11 +6,11 @@
     "\\src\\app\\Modules",
     "\\src\\app\\Modules\\dashboard",
     "\\src\\app\\Modules\\dashboard\\Pages",
+    "\\src\\app\\Modules\\dashboard\\Pages\\courses",
+    "\\src\\app\\Modules\\dashboard\\Pages\\courses\\components",
     "\\src\\app\\Modules\\dashboard\\Pages\\students",
-    "\\src\\app\\Modules\\dashboard\\Pages\\students\\components",
-    "\\src\\app\\Modules\\dashboard\\Pages\\students\\components\\estudent-db",
     "\\src\\app\\Modules\\dashboard\\Pages\\students\\models"
   ],
-  "SelectedNode": "\\src\\app\\Modules\\dashboard\\Pages\\students\\students.component.ts",
+  "SelectedNode": "\\src\\app\\Modules\\dashboard\\Pages\\courses\\components\\courses-table\\courses-table.component.ts",
   "PreviewInSolutionExplorer": false
 }

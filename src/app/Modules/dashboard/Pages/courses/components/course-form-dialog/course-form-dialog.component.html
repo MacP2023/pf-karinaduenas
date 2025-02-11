@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Agregar Curso</h2>
+
+<div mat-dialog-content>
+  <form class="w-full" [formGroup]="courseForm">
+    <!--  [formGroup]="courseForm" (ngSubmit)="onSubmit()"-->
+    <div class="grid">
+
+      <div class="col-6">
+        <mat-form-field class="w-full" appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" formControlName="name" />
+          <!--[ngModel]="name" value="{{name}}"-->
+        </mat-form-field>
+      </div>
+
+      <div class="col-6">
+        <mat-form-field class="w-full" appearance="fill">
+          <mat-label>Descripción</mat-label>
+          <input matInput type="text" formControlName="description" />
+          <!--[ngModel]="description" value="{{description}}"-->
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-full" appearance="fill">
+          <mat-label>Profesor</mat-label>
+          <input matInput type="text" formControlName="teacher" />
+          <!--[ngModel]="teacher" value="{{teacher}}"-->
+
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-full" appearance="fill">
+          <mat-label>Horario</mat-label>
+          <input matInput type="text" formControlName="calendar" />
+          <!--[ngModel]="calendar" value="{{calendar}}"-->
+
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-full" appearance="fill">
+          <mat-label>Tipo Clase</mat-label>
+          <input matInput type="text" formControlName="type" />
+          <!--[ngModel]="type" value="{{type}}"-->
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div mat-dialog-footer>
+      <button mat-raised-button  (click)="onSave()">Guardar</button>
+      <button mat-raised-button mat-dialog-close>Cerrar</button>
+    </div>
+  </form>
+</div>
