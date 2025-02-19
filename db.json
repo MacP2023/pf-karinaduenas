@@ -1,0 +1,51 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Angular",
+      "description": "Descripcion1",
+      "teacher": "Profesor1",
+      "calendar": "Calendario1",
+      "type": "Virtual"
+    },
+    {
+      "id": "2",
+      "name": "Javscript",
+      "description": "Descripcion2",
+      "teacher": "Profesor2",
+      "calendar": "Calendario2",
+      "type": "Presencial"
+    },
+    {
+      "id": "3",
+      "name": "Blazor",
+      "description": "Descripcion3",
+      "teacher": "Profesor3",
+      "calendar": "Calendario3",
+      "type": "Presencial"
+    },
+    {
+      "id": "792d",
+      "name": "PhotoShop",
+      "description": "Descripcion5",
+      "teacher": "Profesor5",
+      "calendar": "Horario5",
+      "type": "Presencial"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

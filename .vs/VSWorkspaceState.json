@@ -8,9 +8,9 @@
     "\\src\\app\\Modules\\dashboard\\Pages",
     "\\src\\app\\Modules\\dashboard\\Pages\\courses",
     "\\src\\app\\Modules\\dashboard\\Pages\\courses\\components",
-    "\\src\\app\\Modules\\dashboard\\Pages\\students",
-    "\\src\\app\\Modules\\dashboard\\Pages\\students\\models"
+    "\\src\\app\\Modules\\dashboard\\Pages\\courses\\components\\courses-table",
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\Modules\\dashboard\\Pages\\courses\\components\\courses-table\\courses-table.component.ts",
+  "SelectedNode": "\\src\\app\\core\\services\\courses.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -56,14 +56,18 @@ export class CoursesComponent implements OnInit {
   }
 
   openFormDialog(editcourse?:Course) {
-  
+   
     this.matDialog.open(CourseFormDialogComponent, { data: { editcourse }})
       .afterClosed().subscribe({
-        next: (coursesList) => {
-          if (!!coursesList) {
+        next: (data) => {
+          if (!!data) {
+            if (!!editcourse) {
+             
+              this.updateCourse(editcourse.id, data);
+            } else {
            
-            this.addCourse(coursesList);
-           // }
+               this.addCourse(data);
+            }
           }
         },
       });
@@ -91,6 +95,16 @@ export class CoursesComponent implements OnInit {
   onEdit(course:Course) {
    alert('En construcción')
   }
+
+  updateCourse(id: number, data: { name: string, description: string, teacher: string, calendar: string, type: string }) {
+    this.isLoading = true;
+    this.coursesServices.updateCourseById(id, data).subscribe({
+      next: (data) => this.handleCoursesUpdate(data),
+      error: (err) => (this.isLoading = false),
+      complete: () => (this.isLoading = false),
+    });
+  }
+
 
   onDelete(id: number) {
     if (confirm('Esta seguro de eliminar el curso')) {

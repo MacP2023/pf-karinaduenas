@@ -8,6 +8,6 @@
 <button mat-raised-button (click)="onCreate()">Crear Curso</button>
 <app-courses-table [coursesList]="coursesList"
                    (delete)="onDelete($event)"
-                   (edit)="onEdit($event)"/>
+                    (edit)="openFormDialog($event)"/>
                    
 }

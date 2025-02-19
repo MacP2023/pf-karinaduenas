@@ -12,8 +12,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
    
   ],
-  exports: [ConcatColsPipe, HeaderSizeDirective, MatListModule, MatTableModule, MatInputModule, MatSelectModule, MatRadioModule, MatTooltipModule, MatIconModule, MatButtonModule, MatDialogModule,MatFormFieldModule,ReactiveFormsModule]
+  exports: [ConcatColsPipe, HeaderSizeDirective, MatListModule, MatTableModule, MatInputModule, MatSelectModule, MatRadioModule, MatTooltipModule, MatIconModule, MatButtonModule, MatDialogModule,MatFormFieldModule,ReactiveFormsModule,MatCardModule]
 })
 export class SharedModule { }
