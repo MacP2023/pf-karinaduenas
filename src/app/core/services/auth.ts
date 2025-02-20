@@ -57,10 +57,7 @@ export class AuthService {
   }
 
   isAuthenticated(): Observable<boolean> {
-    /**
-     * authUser = null entonces quiero retornar false
-     * authUSer != null entonces quiero retornar true
-     */
+   
     const storegeUser = User_DB.find(
       (x) => x.accessToken === localStorage.getItem('access_token')
     );

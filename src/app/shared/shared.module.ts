@@ -25,6 +25,6 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
    
   ],
-  exports: [ConcatColsPipe, HeaderSizeDirective, MatListModule, MatTableModule, MatInputModule, MatSelectModule, MatRadioModule, MatTooltipModule, MatIconModule, MatButtonModule, MatDialogModule,MatFormFieldModule,ReactiveFormsModule,MatCardModule]
+  exports: [ConcatColsPipe, HeaderSizeDirective, MatListModule, MatTableModule, MatInputModule, MatSelectModule, MatRadioModule, MatTooltipModule, MatIconModule, MatButtonModule, MatDialogModule, MatFormFieldModule, ReactiveFormsModule, MatCardModule]
 })
 export class SharedModule { }
