@@ -25,12 +25,113 @@
       "type": "Presencial"
     },
     {
-      "id": "792d",
+      "id": "4",
       "name": "PhotoShop",
       "description": "Descripcion5",
       "teacher": "Profesor5",
       "calendar": "Horario5",
       "type": "Presencial"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "1",
+      "name": "Jose",
+      "lastname": "Perez",
+      "courseId": "3"
+    },
+    {
+      "id": "2",
+      "name": "Maria",
+      "lastname": "Lopez",
+      "coursesId": "1"
+    },
+    {
+      "id": "3",
+      "name": "Cesar",
+      "lastname": "Marin",
+      "courseId": "4"
+    },
+    {
+      "id": "4",
+      "name": "Flora",
+      "lastname": "Contreras",
+      "courseId": "2"
+    }
+  ],
+  "users": [
+    {
+      "id": "vnD3s",
+      "email": "admin@email.com",
+      "password": "123456",
+      "name": "Administrador",
+      "accessToken": "djMDFJNdfmvcJKDFdsmd23GFuedsvFGD2d32",
+      "role": "ADMIN"
+    },
+    {
+      "id": "avs3D",
+      "email": "employee@email.com",
+      "password": "123456",
+      "name": "Empleado",
+      "accessToken": "djMDFJNd3gngh61DFd56hhgfddd23GFue232",
+      "role": "EMPLOYEE"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Karina",
+      "lastname": "Dueñas",
+      "dni": 12545789,
+      "birthdate": "07/10/80",
+      "sex": "F",
+      "address": "Mi direccion Peru",
+      "email": "karina@duenas.com",
+      "cel": "051-87555555"
+    },
+    {
+      "id": "2",
+      "name": "Mayra",
+      "lastname": "Perez",
+      "dni": 56464666,
+      "birthdate": "20/11/86",
+      "sex": "F",
+      "address": "Mi direccion Lima",
+      "email": "mayra@perez.com",
+      "cel": "051-87555555"
+    },
+    {
+      "id": "3",
+      "name": "Pedro",
+      "lastname": "Main",
+      "dni": 1763543,
+      "birthdate": "01/09/74",
+      "sex": "M",
+      "address": "Mi direccion Lima",
+      "email": "pedroa@perez.com",
+      "cel": "051-87555555"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1",
+      "studentId": "1",
+      "courseId": "1"
+    },
+    {
+      "id": "2",
+      "studentId": "2",
+      "courseId": "1"
+    },
+    {
+      "id": "3",
+      "studentId": "3",
+      "courseId": "2"
+    },
+    {
+      "id": "e1e7",
+      "courseId": 3,
+      "studentId": 3
     }
   ],
   "comments": [

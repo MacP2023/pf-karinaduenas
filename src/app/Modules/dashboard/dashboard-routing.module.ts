@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent} from './Pages/home/home.component';
+import { adminGuard } from '../../core/guards/admin.guard';
 
 
 const routes: Routes = [
@@ -19,16 +20,19 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Pages/courses/courses.module').then((m) => m.CoursesModule),
   },
-  {
-    path: 'teachers',
-    loadChildren: () =>
-      import('./Pages/teachers/teachers.module').then((m) => m.TeachersModule),
-  },
+ 
    {
-    path: 'enrrolments',
+    path: 'enrollments',
     loadChildren: () =>
       import('./Pages/enrollments/enrollments.module').then((m) => m.EnrollmentsModule),
-  }
+  },
+
+   {
+     path: 'users',
+     canActivate: [adminGuard],
+     loadChildren: () =>
+     import('./Pages/users/users.module').then((m) => m.UsersModule),
+  },
 ];
 
 @NgModule({

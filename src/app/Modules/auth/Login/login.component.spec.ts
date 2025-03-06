@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { Validators } from '@angular/forms';
+import { AuthService } from '../../../core/services/auth';
+import { MockProvider } from 'ng-mocks';
 
 describe('LoginComponent', () => {
   let loginComponent: LoginComponent;
@@ -10,6 +12,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [SharedModule],
+      providers: [MockProvider(AuthService)],
     }).compileComponents();
 
     loginComponent = TestBed.createComponent(LoginComponent).componentInstance;

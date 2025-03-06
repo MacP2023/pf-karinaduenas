@@ -7,25 +7,25 @@ import { environment } from '../../../environments/environment';
 
 
 
-let coursesDBTemp = [
-  {
-    id: getNextConsecutiveNumber(0),
-    name: 'Angular',
-    description: 'Descripcion1',
-    teacher: 'Profesor1',
-    calendar: 'Calendario1',
-    type: 'Virtual',
+//let coursesDBTemp = [
+//  {
+//    id: getNextConsecutiveNumber(0),
+//    name: 'Angular',
+//    description: 'Descripcion1',
+//    teacher: 'Profesor1',
+//    calendar: 'Calendario1',
+//    type: 'Virtual',
 
-  },
-  {
-    id: getNextConsecutiveNumber( 1),
-    name: 'Javscript',
-    description: 'Descripcion' + 1,
-    teacher: 'Profesor' +  1,
-    calendar: 'Calendario' +  1,
-    type: 'Presencial',
-  },
-];
+//  },
+//  {
+//    id: getNextConsecutiveNumber( 1),
+//    name: 'Javscript',
+//    description: 'Descripcion' + 1,
+//    teacher: 'Profesor' +  1,
+//    calendar: 'Calendario' +  1,
+//    type: 'Presencial',
+//  },
+//];
 
 @Injectable({ providedIn: 'root' })
 
@@ -35,7 +35,12 @@ export class CousesServices {
 
   idaux = 0;
 
-  
+  getCourseDetail(id: string): Observable<Course> {
+    alert(`${environment.baseApiUrl}/courses/${id}?_embed=teachers`)
+    return this.httpClient.get<Course>(
+      `${environment.baseApiUrl}/courses/${id}?_embed=teachers`
+    );
+  }
 
   getCourses(): Observable<Course[]> {
   

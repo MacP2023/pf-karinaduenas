@@ -5,7 +5,7 @@
 <p>Por favor, espere...</p>}
 @else
 {
-<button mat-raised-button (click)="onCreate()">Crear Curso</button>
+<button mat-raised-button *ngIf="isAdmin$ | async" (click)="onCreate()">Crear Curso</button>
 <app-courses-table [coursesList]="coursesList"
                    (delete)="onDelete($event)"
                     (edit)="openFormDialog($event)"/>

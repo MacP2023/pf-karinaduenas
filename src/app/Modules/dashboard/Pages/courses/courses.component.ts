@@ -14,6 +14,8 @@ import {
 import { Course } from './models/course';
 import { MatDialog } from '@angular/material/dialog';
 import { CourseFormDialogComponent } from './components/course-form-dialog/course-form-dialog.component';
+import { AuthService } from '../../../../core/services/auth';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-courses',
@@ -27,7 +29,13 @@ export class CoursesComponent implements OnInit {
   isLoading = true;
   hasError = false
   coursesSubscription?: Subscription;
-  constructor(private coursesServices: CousesServices , private matDialog: MatDialog) { }
+
+  isAdmin$: Observable<boolean>;
+
+  constructor(private coursesServices: CousesServices, private matDialog: MatDialog, private authService: AuthService) {
+    this.isAdmin$ = this.authService.isAdmin$;
+
+  }
 
   ngOnInit(): void {
    
@@ -44,7 +52,7 @@ export class CoursesComponent implements OnInit {
           this.coursesList = [...coursesList];
         },
         error: (error) => {
-          alert(error);
+          alert('El servidor no esta disponible');
           this.hasError = true;
           this.isLoading = false;
         },

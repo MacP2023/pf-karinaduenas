@@ -1,3 +1,5 @@
+import { Teacher } from "../../teachers/models/teacher";
+
 export interface Course {
   id: number,
   name: string,
@@ -5,6 +7,6 @@ export interface Course {
   teacher: string,
   calendar: string,
   type: string,
-  
+  teachers?:Teacher[],
 
 }

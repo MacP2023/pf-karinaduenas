@@ -1,1 +1,97 @@
-<p>enrollments works!</p>
+
+
+<ng-template #successTemplate>
+  <form [formGroup]="enrollmentForm"
+        (ngSubmit)="onSubmit()"
+        class="grid formgrid w-12">
+    <div class="col-6">
+      <mat-form-field class="w-full">
+        <mat-label>Estudiante</mat-label>
+        <mat-select formControlName="studentId">
+          <mat-option [value]="student.id" *ngFor="let student of students">
+            {{ student.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field class="w-full">
+        <mat-label>Curso</mat-label>
+        <mat-select formControlName="courseId">
+          <mat-option [value]="course.id" *ngFor="let course of courses">
+            {{ course.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-12 flex justify-content-end">
+      <button type="submit" mat-flat-button>Guardar</button>
+    </div>
+  </form>
+</ng-template>
+
+
+  <button (click)="createEnrollment()">Agegar Inscripción</button>
+
+  @if (!isLoading$)
+  {
+  <p>Por favor, espere...</p>
+  }
+  @else {
+  @if (error$) {
+  <p>Ocurrio un error inesperado</p>
+  }
+  @else {
+
+  <h4>Inscritos:</h4>
+
+  <hr class="w-7" />
+  <div class="w-7">
+    <table mat-table [dataSource]="(enrollments$ | async) || []" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef appHeaderSize>ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.id }} </td>
+      </ng-container>
+      <ng-container matColumnDef="studentId">
+        <th mat-header-cell *matHeaderCellDef appHeaderSize>CodigoEstudiante</th>
+        <td mat-cell *matCellDef="let element"> {{element.studentId }} </td>
+      </ng-container>
+      <ng-container matColumnDef="courseId">
+        <th mat-header-cell *matHeaderCellDef appHeaderSize>CodigoCurso</th>
+        <td mat-cell *matCellDef="let element"> {{element.courseId }} </td>
+      </ng-container>
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element">
+          <div>
+            <table style="width:auto">
+              <tr>
+                <td>
+                  <button matTooltip="Eliminar Usuario">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+                <td>
+                  <button matTooltip="Editar Usuario">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </td>
+                (click)="deleteUserById(element.id)"
+
+              </tr>
+            </table>
+          </div>
+
+        </td>
+
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="mat-row"></tr>
+
+    </table>
+  </div>
+  }
+  }
+
+

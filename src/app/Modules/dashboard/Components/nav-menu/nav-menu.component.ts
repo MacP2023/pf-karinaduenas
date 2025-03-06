@@ -24,21 +24,14 @@ export class NavMenuComponent {
       label: 'Cursos',
       routerLink: 'courses',
     },
+ 
     {
-      label: 'Clases',
-      routerLink: 'home',
-    },
-    {
-      label: 'Profesores',
-      routerLink: 'home',
-    },
-    {
-      label: 'Innscripciones',
-      routerLink: 'home',
+      label: 'Inscripciones',
+      routerLink: 'enrollments',
     },
     {
       label: 'Usuarios',
-      routerLink: 'home',
+      routerLink: 'users',
     },
    
   ];

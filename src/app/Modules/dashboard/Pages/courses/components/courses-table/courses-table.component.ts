@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Course } from "../../models/course";
+import { AuthService } from '../../../../../../core/services/auth';
+import { map, Observable } from 'rxjs';
+
+
 @Component({
   selector: 'app-courses-table',
   standalone: false,
@@ -16,8 +20,14 @@ export class CoursesTableComponent {
   edit = new EventEmitter<Course>();
 
   displayedColumns = ['id', 'name', 'description', 'teacher', 'calendar', 'type','acciones'];
- 
-  onConstruc() {
-    alert('En construccion');
+
+  isAdmin$: Observable<boolean>;
+
+  constructor(private authService: AuthService) {
+    this.isAdmin$ = this.authService.isAdmin$;
   }
+
+  //onConstruc() {
+  //  alert('En construccion');
+  //}
 }

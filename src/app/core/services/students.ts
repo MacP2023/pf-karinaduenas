@@ -12,7 +12,7 @@ export class StudentsServices {
     return new Observable<Student[]>((subscriber) => {
       const students = [
         {
-          id: getNextConsecutiveNumber(this.idaux),
+          id: 1,
           name: 'Karina',
           lastname: 'Dueñas',
           dni: 12545789,
@@ -23,7 +23,7 @@ export class StudentsServices {
           cel: '051-87555555'
         },
         {
-          id: getNextConsecutiveNumber(this.idaux+1),
+          id: 2,
           name: 'Mayra',
           lastname: 'Perez',
           dni: 56464666,
@@ -33,6 +33,17 @@ export class StudentsServices {
           email: 'mayra@perez.com',
           cel: '051-87555555'
         },
+        {
+          "id": 3,
+          "name": 'Pedro',
+          "lastname": 'Main',
+          "dni": 1763543,
+          "birthdate": new Date('01/09/74'),
+          "sex": 'M',
+          "address": 'Mi direccion Lima',
+          "email": 'pedroa@perez.com',
+          "cel": '051-87555555'
+        }
       ];
 
       setInterval(() => {

@@ -39,17 +39,17 @@
             <table style="width:auto">
               <tr>
                 <td>
-                  <button (click)="delete.emit(element.id)" matTooltip="Eliminar Curso">
+                  <button  *ngIf="isAdmin$ | async" (click)="delete.emit(element.id)" matTooltip="Eliminar Curso">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </td>
                 <td>
-                  <button (click)="edit.emit(element)" matTooltip="Editar Curso">
+                  <button  *ngIf="isAdmin$ | async" (click)="edit.emit(element)" matTooltip="Editar Curso">
                     <mat-icon>edit</mat-icon>
                   </button>
                 </td>
                 <td>
-                  <button (click)="onConstruc()" [routerLink]="element.id" matTooltip="Ver Detalle">
+                  <button  [routerLink]="element.id" matTooltip="Ver Detalle">
                     <mat-icon><span class="material-symbols-sharp">search</span></mat-icon>
                   </button>
                 </td>
