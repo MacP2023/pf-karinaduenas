@@ -64,7 +64,49 @@ export const reducer = createReducer(
       error: action.error,
     };
   }),
+  on(EnrollmentActions.updateEnrollment, (state, action) => {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }),
+  on(EnrollmentActions.updateEnrollmentSuccess, (state, action) => {
+    return {
+      ...state,
+      isLoading: false,
+      error: null,
+      enrollments: [...state.enrollments, action.data],
+    };
+  }),
+  on(EnrollmentActions.updateEnrollmentFailure, (state, action) => {
+    return {
+      ...state,
+      isLoading: false,
+      error: action.error,
+    };
+  }),
 
+  on(EnrollmentActions.deleteEnrollmentById, (state, action) => {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }),
+  on(EnrollmentActions.deleteEnrollmentSuccess, (state, action) => {
+    return {
+      ...state,
+      isLoading: false,
+      error: null,
+      enrollments: [...state.enrollments, action.data],
+    };
+  }),
+  on(EnrollmentActions.deleteEnrollmentFailure, (state, action) => {
+    return {
+      ...state,
+      isLoading: false,
+      error: action.error,
+    };
+  }),
 
   on(EnrollmentActions.resetState, () => initialState),
 

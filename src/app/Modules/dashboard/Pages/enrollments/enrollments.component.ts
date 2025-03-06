@@ -24,12 +24,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EnrollmentsComponent implements OnInit, OnDestroy {
   enrollments$: Observable<Enrollment[]>;
   isLoading$: Observable<boolean>;
-  error$: Observable<unknown>;
-
+  //error$: Observable<unknown>;
+  
   courses: Course[] = [];
   students: Student[] = [];
   enrollmentForm: FormGroup;
-
+  idEdit: number=0;
   
   displayedColumns = ['id', 'studentId', 'courseId', 'acciones'];
   constructor(private store: Store, private coursesService: CousesServices,
@@ -39,7 +39,7 @@ export class EnrollmentsComponent implements OnInit, OnDestroy {
     this.enrollments$ = this.store.select(selectEnrollments);
   
     this.isLoading$ = this.store.select(selectIsLoadingEnrollments);
-    this.error$ = this.store.select(selectEnrollmentsError);
+   // this.error$ = this.store.select(selectEnrollmentsError);
     this.enrollmentForm = this.fb.group({
       studentId: [null, Validators.required],
       courseId: [null, Validators.required],
@@ -79,14 +79,60 @@ export class EnrollmentsComponent implements OnInit, OnDestroy {
       },
     });
   }
+
+  deleteStudentsAndCoursesById(id: number) {
+    this.store.dispatch(
+      EnrollmentActions.deleteEnrollmentById({
+        id
+      })
+    );
+   // this.usersService.deleteUserById(id);
+  }
+
+  updateStudentsAndCourses(id: number, studentID: number, courseID: number) {
+    this.idEdit = id;
+
+    this.enrollmentForm.controls['studentId'].setValue(studentID);
+    this.enrollmentForm.controls['courseId'].setValue(courseID);
+   
+  }
+
+  updateStudentsAndCoursesById(data:Enrollment ) {
+    this.store.dispatch(
+      EnrollmentActions.updateEnrollment({
+        data: {
+          id: data.id,
+          studentId: data.studentId,
+          courseId: data.courseId
+        }
+       
+      })
+    );
+   
+  }
+
   onSubmit(): void {
+    let data: Enrollment;
+   
     if (this.enrollmentForm.invalid) {
       this.enrollmentForm.markAllAsTouched();
     } else {
-      this.store.dispatch(
-        EnrollmentActions.createEnrollment({ data: this.enrollmentForm.value })
-      );
+      if (this.idEdit > 0) {
+        data= {
+          id: this.idEdit,
+          studentId: this.enrollmentForm.controls['studentId'].value,
+          courseId: this.enrollmentForm.controls['courseId'].value,
+        }
+       
+        this.updateStudentsAndCoursesById(data)
+        this.loadStudentsAndCourses();
     }
+      else
+        this.store.dispatch(
+          EnrollmentActions.createEnrollment({ data: this.enrollmentForm.value })
+        );
+    }
+    
   }
 
 

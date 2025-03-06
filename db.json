@@ -82,7 +82,7 @@
       "id": "1",
       "name": "Karina",
       "lastname": "Dueñas",
-      "dni": 12545789,
+      "dni": "12545789",
       "birthdate": "07/10/80",
       "sex": "F",
       "address": "Mi direccion Peru",
@@ -93,7 +93,7 @@
       "id": "2",
       "name": "Mayra",
       "lastname": "Perez",
-      "dni": 56464666,
+      "dni": "56464666",
       "birthdate": "20/11/86",
       "sex": "F",
       "address": "Mi direccion Lima",
@@ -104,7 +104,7 @@
       "id": "3",
       "name": "Pedro",
       "lastname": "Main",
-      "dni": 1763543,
+      "dni": "1763543",
       "birthdate": "01/09/74",
       "sex": "M",
       "address": "Mi direccion Lima",
@@ -129,9 +129,9 @@
       "courseId": "2"
     },
     {
-      "id": "e1e7",
-      "courseId": 3,
-      "studentId": 3
+      "id": "1476",
+      "studentId": 4,
+      "courseId": "4"
     }
   ],
   "comments": [

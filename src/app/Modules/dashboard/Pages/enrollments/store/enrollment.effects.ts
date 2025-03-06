@@ -46,6 +46,43 @@ export class EnrollmentEffects {
     );
   });
 
+  updateEnrollments$ = createEffect(() => {
+    return this.actions$.pipe(
 
+      ofType(EnrollmentActions.updateEnrollment),
+
+      concatMap((action) =>
+        this.enrollmentsService.updateEnrollment(action.data).pipe(
+
+          map((enrollment) =>
+            EnrollmentActions.updateEnrollmentSuccess({ data: enrollment })
+          ),
+
+          catchError((error) =>
+            of(EnrollmentActions.updateEnrollmentFailure({ error }))
+          )
+        )
+      )
+    );
+  });
+  deleteEnrollments$ = createEffect(() => {
+    return this.actions$.pipe(
+
+      ofType(EnrollmentActions.deleteEnrollmentById),
+
+      concatMap((action) =>
+        this.enrollmentsService.deleteEnrollmentById(action.id).pipe(
+
+          map((enrollment) =>
+            EnrollmentActions.deleteEnrollmentSuccess({ data: enrollment })
+          ),
+
+          catchError((error) =>
+            of(EnrollmentActions.deleteEnrollmentFailure({ error }))
+          )
+        )
+      )
+    );
+  });
   constructor(private enrollmentsService: EnrollmentsService) {}
 }

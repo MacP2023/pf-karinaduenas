@@ -3,15 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\core",
     "\\src\\app\\Modules",
     "\\src\\app\\Modules\\dashboard",
-    "\\src\\app\\Modules\\dashboard\\Components",
-    "\\src\\app\\Modules\\dashboard\\Components\\nav-menu",
     "\\src\\app\\Modules\\dashboard\\Pages",
-    "\\src\\app\\Modules\\dashboard\\Pages\\users",
-    "\\src\\app\\Modules\\dashboard\\Pages\\users\\models"
+    "\\src\\app\\Modules\\dashboard\\Pages\\courses",
+    "\\src\\app\\Modules\\dashboard\\Pages\\courses\\models",
+    "\\src\\app\\Modules\\dashboard\\Pages\\students",
+    "\\src\\app\\Modules\\dashboard\\Pages\\students\\models"
   ],
-  "SelectedNode": "\\src\\app\\core\\services\\auth.ts",
+  "SelectedNode": "\\db.json",
   "PreviewInSolutionExplorer": false
 }

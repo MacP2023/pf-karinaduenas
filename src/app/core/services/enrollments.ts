@@ -20,4 +20,17 @@ export class EnrollmentsService {
       data
     );
   }
+
+  updateEnrollment(data: Enrollment): Observable<Enrollment> {
+    return this.httpClient.put<Enrollment>(
+      `${environment.baseApiUrl}/enrollments/` + data.id,
+      data
+    );
+  }
+
+  deleteEnrollmentById(id: number): Observable<Enrollment> {
+    return this.httpClient.delete<Enrollment>(
+      `${environment.baseApiUrl}/enrollments/` + id
+    );
+  }
 }
